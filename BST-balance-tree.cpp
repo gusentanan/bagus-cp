@@ -18,13 +18,13 @@
 class Solution {
 public:
     
-    void inorderTransversal(TreeNode* node, vector<TreeNode*> &tree){
+    void inorderTraversal(TreeNode* node, vector<TreeNode*> &tree){
         if(node == NULL){
             return;
         }
-        inorderTransversal(node->left, tree);
+        inorderTraversal(node->left, tree);
         tree.push_back(node);
-        inorderTransversal(node->right, tree);
+        inorderTraversal(node->right, tree);
     }
     
     TreeNode* balanceTree(vector<TreeNode*> &tree, int start, int finish){
@@ -33,7 +33,7 @@ public:
         }
         int mid = start + (finish-start)/2;
         TreeNode* node = tree[mid];
-        node-> left = balanceTree(tree, start, mid-1);
+        node->left = balanceTree(tree, start, mid-1);
         node->right = balanceTree(tree, mid+1, finish);
         
         return node;
@@ -42,8 +42,11 @@ public:
     
     TreeNode* balanceBST(TreeNode* root) {
         vector<TreeNode*> tree;
-        inorderTransversal(root, tree);
+        inorderTraversal(root, tree);
         return balanceTree(tree, 0, tree.size() - 1);
     }
     
 };
+
+// Space: O(n) because we have to store every integer of the input tree
+// Time: O(n) because we have to visit every single node in the input tree
