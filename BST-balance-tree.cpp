@@ -47,3 +47,6 @@ public:
     }
     
 };
+
+// Space: O(n) because we have to store every integer of the input tree
+// Time: O(n) because we have to visit every single node in the input tree
