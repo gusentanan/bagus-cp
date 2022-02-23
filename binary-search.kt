@@ -3,8 +3,8 @@ class Solution {
         var left: Int = 0
         var right: Int = nums.size - 1
         
-        for(i in left until right){
-            var middle: Int = (left + right) / 2
+        while(left <= right){
+            var middle: Int = (left + right) 
             
             if(nums[middle] == target){
                 return middle
