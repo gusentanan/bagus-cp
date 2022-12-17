@@ -24,7 +24,7 @@ class Solution {
             if(s[left].toLowerCase() != s[right].toLowerCase()){
                 println("${s[left]} == ${s[right]}")
                 return false
-            }
+            }   
             left = left + 1
             right = right - 1
         }
