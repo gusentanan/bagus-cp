@@ -14,19 +14,38 @@
 
 class Solution {
     fun isAnagram(s: String, t: String): Boolean {
-        if(s.length != t.length)
-            return false
-    
-        var sHashMap = HashMap<Char, Int>()
-        var tHashMap = HashMap<Char, Int>()
-        
-        for(i in 0 until s.length){
-            sHashMap[s[i]] = (sHashMap[s[i]]?:0) + 1
-            tHashMap[t[i]] = (tHashMap[t[i]]?:0) + 1
+        // we need to check if the two string have the same length, otherwise is not anagram
+        if(s.length != t.length){
+            return false 
         }
-        for(key in sHashMap.keys){
-            if(sHashMap.get(key) != tHashMap.get(key))
+
+        var sMap = HashMap<Char, Int>()
+        var tMap = HashMap<Char, Int>()
+
+        /** 
+          we need to add the two string (s and t) into corresponding HashMap (sMap and tMap)
+          with the character as a key, and the total of unique character found in 
+          the string as a value.
+        */
+        for(i in 0 until s.length){
+            sMap[s[i]] = (sMap[s[i]]?:0) + 1 
+            tMap[t[i]] = (tMap[t[i]]?:0) + 1 
+            /**
+                sMap[s[i]?:0] -> 
+                using nsf operator, if the key is not found in the hashmap
+                then we add 1 (0+1) as a default value, if the same character found then 
+                we increase the value by one
+            */
+        }
+
+        /**
+          Iterate through the key to find the matches total unique character inside each of
+          the hashmap. return false if any key value is not matches
+         */
+        for(key in sMap.keys){
+            if(sMap.get(key) != tMap.get(key)){
                 return false
+            }
         }
         return true
     }

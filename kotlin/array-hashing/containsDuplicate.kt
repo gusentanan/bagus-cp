@@ -17,10 +17,10 @@ class Solution {
                 return true
             } else {
                 /**
-                 The value inside the HashMap is useless, we only use the key so that when we
-                 iterate through the array and found the number that exactly matches the key 
-                 in our hashmap, return true! 
-                 (condition. Max 1 unique number in hashmap)
+                 The value inside the HashMap is not useful; we only utilize the key.
+                 When iterating through the array and finding a number that exactly
+                 matches a key in our hashmap, we return true. This condition ensures 
+                 that there is a maximum of one unique number in the hashmap.
                 */
                 hashMap[nums[i]] = i
             }
@@ -29,7 +29,7 @@ class Solution {
     }
 }
 
-// time:  O(n) because we need to iterate through the array to fill the hashmap (base on worst cases which we iterate until the last item on the array)
+// time:  O(n) because we need to iterate through the array to fill the hashmap ( considering worst-case scenarios where we iterate until the last item in the array)
 // space: O(n) because we need a new hashmap to store all the number from the array 
 
 /**
